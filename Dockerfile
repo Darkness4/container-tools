@@ -24,6 +24,19 @@ RUN apk --allow-untrusted \
   # For JWT's JTI field.
   uuidgen
 
+RUN mkdir -p /newroot/etc && \
+  echo "root:x:0:0:root:/root:/sbin/nologin" >> /newroot/etc/passwd && \
+  echo "user1000:x:1000:1000:user1000:/home/user1000:/sbin/nologin" >> /newroot/etc/passwd && \
+  echo "user1001:x:1001:1001:user1001:/home/user1001:/sbin/nologin" >> /newroot/etc/passwd && \
+  echo "root:x:0:" >> /newroot/etc/group && \
+  echo "user1000:x:1000:" >> /newroot/etc/group && \
+  echo "user1001:x:1001:" >> /newroot/etc/group && \
+  mkdir -p /newroot/home/user1000 /newroot/home/user1001 /newroot/root && \
+  chown 0:0 /newroot/root && \
+  chown 1000:1000 /newroot/home/user1000 && \
+  chown 1001:1001 /newroot/home/user1001 && \
+  chmod 750 /newroot/root /newroot/home/user1000 /newroot/home/user1001
+
 # --------------------
 FROM scratch
 # --------------------
