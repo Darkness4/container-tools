@@ -19,7 +19,7 @@ RUN apk --allow-untrusted \
   openssh-client \
   'jq<2' \
   curl \
-  'gomplate<5' \
+  'gomplate<6' \
   logrotate \
   # For JWT's JTI field.
   uuidgen

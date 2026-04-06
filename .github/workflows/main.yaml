@@ -55,7 +55,7 @@ jobs:
           tags: |
             latest
             v1
-            type=schedule,pattern={{date 'YYYYMMDD'}}
+            {{date 'YYYYMMDD'}}
 
       - name: Build
         uses: docker/build-push-action@v6
