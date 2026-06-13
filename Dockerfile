@@ -6,6 +6,7 @@ FROM alpine AS build
 RUN apk --allow-untrusted \
   -X http://dl-cdn.alpinelinux.org/alpine/edge/main \
   -X http://dl-cdn.alpinelinux.org/alpine/edge/community \
+  -X http://dl-cdn.alpinelinux.org/alpine/edge/testing \
   -U \
   -p /newroot \
   --no-cache \
