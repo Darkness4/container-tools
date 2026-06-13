@@ -21,8 +21,8 @@ RUN apk --allow-untrusted \
   curl \
   'gomplate<6' \
   logrotate \
-  # For JWT's JTI field.
-  uuidgen
+  uuidgen \
+  s5cmd
 
 RUN mkdir -p /newroot/etc && \
   echo "root:x:0:0:root:/root:/sbin/nologin" >> /newroot/etc/passwd && \
